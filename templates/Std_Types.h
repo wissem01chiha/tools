@@ -1,0 +1,1 @@
+// platform types standard tyes not gne 

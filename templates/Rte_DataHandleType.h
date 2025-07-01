@@ -1,0 +1,7 @@
+#ifndef RTE_DATAHANDLETYPE_H
+#define RTE_DATAHANDLETYPE_H
+
+
+
+
+#endif // RTE_DATAHANDLETYPE_H
