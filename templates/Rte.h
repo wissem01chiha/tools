@@ -5,7 +5,10 @@
 #include "Std_Types.h"
 
 // client-server port ‘p1’ with operation ‘a’ with a single argument,
-#define Rte_Call_{% port %}_a(s,v) ((s)->{% port %}.Call_a(v))
+
+{% for port in ports %}
+#define Rte_Call_{{ port.name }}_a(s,v) ((s)->{{ port.name }}.Call_a(v))
+{% endfor %}
 
 // in compatiblty mode : 
 #define Rte_Pim

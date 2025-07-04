@@ -6,6 +6,7 @@ use askama::Template;
 struct HeaderTemplate<'a> {
     functions: &'a [FunctionSpec],
     variables: &'a [VariableSpec],
+    ports: &'a [PortSpec],
 }
 
 struct FunctionSpec {
@@ -18,6 +19,10 @@ struct VariableSpec {
     name: String,
 }
 
+struct PortSpec{
+    name:String,
+
+}
 fn main() {
     let funcs = vec![
         FunctionSpec {
@@ -40,10 +45,19 @@ fn main() {
             name: "buffer[256]".to_string(),
         },
     ];
+    let ptrs = vec![
+        PortSpec {
+            name :"first_port".to_string(),
+        },
+        PortSpec {
+          name :"second_port".to_string(),
+        },
+    ];
 
     let header = HeaderTemplate {
         functions: &funcs,
         variables: &vars,
+        ports: &ptrs,
     };
 
     let rendered = header.render().unwrap();

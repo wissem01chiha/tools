@@ -1,0 +1,54 @@
+  <APPLICATION-SW-COMPONENT-TYPE>
+    <SHORT-NAME>Plant</SHORT-NAME>
+    <PORTS>
+        <P-PORT-PROTOTYPE>
+            <SHORT-NAME>PlantTemperaturePPP</SHORT-NAME>
+            <DESC>
+                <L-2 L="EN">Port for sending out the estimated temperature of the
+                plant</L-2>
+            </DESC>
+            <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">
+                /McInt/PortInterfaces/TemperatureSRIF
+            </PROVIDED-INTERFACE-TREF>
+        </P-PORT-PROTOTYPE>
+    </PORTS>
+    <INTERNAL-BEHAVIORS>
+        <SWC-INTERNAL-BEHAVIOR>
+            <SHORT-NAME>PlantInternalBehavior</SHORT-NAME>
+            <DATA-TYPE-MAPPING-REFS>
+                <DATA-TYPE-MAPPING-REF DEST="DATA-TYPE-MAPPING-SET">
+                    /McInt/DataTypeMappings/DataTypeMappingSet
+                </DATA-TYPE-MAPPING-REF>
+            </DATA-TYPE-MAPPING-REFS>
+            <EVENTS>
+                <TIMING-EVENT>
+                    <SHORT-NAME>plant100ms</SHORT-NAME>
+                    <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">
+                        /McInt/SwComponents/Plant/PlantInternalBehavior/plantRE
+                    </START-ON-EVENT-REF>
+                    <PERIOD>0.1</PERIOD>
+                </TIMING-EVENT>
+            </EVENTS>
+            <RUNNABLES>
+                <RUNNABLE-ENTITY>
+                    <SHORT-NAME>plantRE</SHORT-NAME>
+                    <DATA-WRITE-ACCESSS>
+                        <VARIABLE-ACCESS>
+                            <SHORT-NAME>DWA_PlantTemperature</SHORT-NAME>
+                            <ACCESSED-VARIABLE>
+                                <AUTOSAR-VARIABLE-IREF>
+                                    <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">
+                                        /McInt/SwComponents/Plant/PlantTemperaturePPP
+                                    </PORT-PROTOTYPE-REF>
+                                    <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">
+                                        /McInt/PortInterfaces/TemperatureSRIF/T
+                                    </TARGET-DATA-PROTOTYPE-REF>
+                                </AUTOSAR-VARIABLE-IREF>
+                            </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                    </DATA-WRITE-ACCESSS>
+                </RUNNABLE-ENTITY>
+            </RUNNABLES>
+        </SWC-INTERNAL-BEHAVIOR>
+    </INTERNAL-BEHAVIORS>
+  </APPLICATION-SW-COMPONENT-TYPE>
