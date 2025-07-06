@@ -1,14 +1,33 @@
-// ser defined impl data tyes 
-#include "Rte.h" 
+#ifndef RTE_TYPE_H
+#define RTE_TYPE_H
 
-// The RTE Types Header File includes the RTE specific type declarations derived from
-// the ImplementationDataTypes created from the definitions of AUTOSAR meta-
-// model classes within the RTE generator’s input.
-#define RTE_E_OK 0
-// mplementationDataTypes are generated in the RTE Types Header file
+#include "Std_Types.h"
 
-{% for attribute in PrimitiveImplementationDataType %}
-typedef {% attribute %} PrimitiveImplementationDataType;
+#define RTE_E_OK     0
+#define RTE_E_NOT_OK 1
+
+{% for type in primitive_types %}
+typedef {{ type.base_type }} {{ type.name }};
 {% endfor %}
 
-typedef <nativeDeclaration> <name>[<size 1>]{[<size 2>]...[<size n>]};
+{% for enum in enumerations %}
+typedef enum {
+    {% for value in enum.values %}
+    {{ value.name }} = {{ value.value }},
+    {% endfor %}
+} {{ enum.name }};
+{% endfor %}
+
+{% for record in records %}
+typedef struct {
+    {% for field in record.fields %}
+    {{ field.type }} {{ field.name }};
+    {% endfor %}
+} {{ record.name }};
+{% endfor %}
+
+{% for array in arrays %}
+typedef {{ array.base_type }} {{ array.name }}[{{ array.size }}];
+{% endfor %}
+
+#endif // RTE_TYPE_H

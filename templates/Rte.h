@@ -1,40 +1,47 @@
 #ifndef RTE_H
 #define RTE_H
 
-// rte tyes wch$ic not configu)red not gne 
 #include "Std_Types.h"
+#include "Rte_Type.h"
 
-// client-server port ‘p1’ with operation ‘a’ with a single argument,
+typedef struct {
+    
+} Rte_Instance;
 
 {% for port in ports %}
-#define Rte_Call_{{ port.name }}_a(s,v) ((s)->{{ port.name }}.Call_a(v))
+{% if port.kind() == "ClientServer" %}
+#define Rte_Call_{{ port.name }}_a(instance, arg) ((instance)->{{ port.name }}.Call_a(arg))
+{% else %}
+#define Rte_Write_{{ port.name }}_{{ port.signal }}(instance, data) \
+    ((instance)->{{ port.name }}.{{ port.signal }} = (data), E_OK)
+{% endif %}
 {% endfor %}
 
-// in compatiblty mode : 
-#define Rte_Pim
-#define Rte_IRead
-#define Rte_IWrite
-#define Rte_IWriteRef
-#define Rte_IStatus
-#define Rte_IrvIRead
-#define Rte_Send_p1_a(s,a) (<var> = (a), RTE_E_OK)
+{% for pim in pims %}
+#define Rte_Pim_{{ pim.name }}(instance) ((instance)->{{ pim.name }})
+{% endfor %}
 
-// Generated function prototypes
+{% for irv in irvs %}
+#define Rte_IrvIWrite_{{ irv.runnable }}_{{ irv.name }}(instance, value) \
+    ((instance)->irv_{{ irv.name }} = (value))
+#define Rte_IrvIRead_{{ irv.runnable }}_{{ irv.name }}(instance) \
+    ((instance)->irv_{{ irv.name }})
+{% endfor %}
+
+{% for mode in modes %}
+#define Rte_Mode_{{ mode.name }}(instance) ((instance)->{{ mode.name }})
+{% endfor %}
+
+{% for trigger in triggers %}
+#define Rte_Trigger_{{ trigger.name }}(instance) ((instance)->{{ trigger.name }}())
+{% endfor %}
+
 {% for func in functions %}
 void {{ func.name }}({{ func.args }});
 {% endfor %}
 
-// Global variables
 {% for var in variables %}
 extern {{ var.ctype }} {{ var.name }};
 {% endfor %}
-
-
-// Std_ReturnType
-// Rte_Write_<p>_<o>([IN Rte_Instance <instance>],
-// IN <data>)
-// Where <p> is the port name and <o> the VariableDataPro-
-// totype within the sender-receiver interface categorizing the port.
-// c(BSW00310, RTE00098, RTE00028, RTE00131)
 
 #endif // RTE_H
