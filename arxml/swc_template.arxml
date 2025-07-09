@@ -1,17 +1,29 @@
-  <APPLICATION-SW-COMPONENT-TYPE>
+<APPLICATION-SW-COMPONENT-TYPE>
     <SHORT-NAME>Plant</SHORT-NAME>
     <PORTS>
+        <!-- Provided Port -->
         <P-PORT-PROTOTYPE>
             <SHORT-NAME>PlantTemperaturePPP</SHORT-NAME>
             <DESC>
-                <L-2 L="EN">Port for sending out the estimated temperature of the
-                plant</L-2>
+                <L-2 L="EN">Port for sending out the estimated temperature of the plant</L-2>
             </DESC>
             <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">
                 /McInt/PortInterfaces/TemperatureSRIF
             </PROVIDED-INTERFACE-TREF>
         </P-PORT-PROTOTYPE>
+
+        <!-- Required Port (Newly Added) -->
+        <R-PORT-PROTOTYPE>
+            <SHORT-NAME>AmbientTemperatureRPP</SHORT-NAME>
+            <DESC>
+                <L-2 L="EN">Port for receiving ambient temperature data</L-2>
+            </DESC>
+            <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">
+                /McInt/PortInterfaces/AmbientTemperatureSRIF
+            </REQUIRED-INTERFACE-TREF>
+        </R-PORT-PROTOTYPE>
     </PORTS>
+
     <INTERNAL-BEHAVIORS>
         <SWC-INTERNAL-BEHAVIOR>
             <SHORT-NAME>PlantInternalBehavior</SHORT-NAME>
@@ -51,4 +63,4 @@
             </RUNNABLES>
         </SWC-INTERNAL-BEHAVIOR>
     </INTERNAL-BEHAVIORS>
-  </APPLICATION-SW-COMPONENT-TYPE>
+</APPLICATION-SW-COMPONENT-TYPE>
