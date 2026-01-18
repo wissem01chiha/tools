@@ -1,3 +1,0 @@
-
-
-void <CallbackRoutineName> (void);
