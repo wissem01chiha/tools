@@ -1,0 +1,8 @@
+{   
+    "name":"mio",
+    "description" : "Cross-platform C++11 header-only library for memory mapped file IO",
+    "version": "VERSION",
+    "license": "LICENSE",
+    "ignore": [
+    ]
+}
