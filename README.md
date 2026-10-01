@@ -1,7 +1,5 @@
 # Wissem's Miscellaneous Scripts Collection
 
-## Overview
-
 This repository contains scripts I have written to automate repetitive tasks in my daily development work. I tend to script a task whenever I think I might need to repeat it. I originally created this collection to avoid duplicating utility scripts across my project repositories. Most scripts are written in Bash, with others written in Perl, Python, and Lua.
 
 The scripts mainly support build automation for modern projects, static code analysis, and toolchain setup. Some are also useful for debugging.
