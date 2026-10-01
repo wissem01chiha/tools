@@ -1,34 +1,28 @@
-# tools
+# Wissem's Miscellaneous Scripts Collection
 
-This repo contains a large collection of random scripts that that I have written for automating repetitive things in my daily develllopment activites. I have the habit of scripting any tasks even if there is a slight chance that I may have to repeat the same task. I created it at first place to reduce redundent modifications in utiltiy scripts across my projects repostories. Most of these scripts are bash shell scripts but it also has some with perl, python and even lua.
+## Overview
 
-Most parts of these tools focus on modern projects build automation, code static analysis, toolchians setups
- and some are just for debugging puropoises.
+This repository contains scripts I have written to automate repetitive tasks in my daily development work. I tend to script a task whenever I think I might need to repeat it. I originally created this collection to avoid duplicating utility scripts across my project repositories. Most scripts are written in Bash, with others written in Perl, Python, and Lua.
 
-While most of these run natively on Linux , MacOS and Windows, some require additional binaries or softwares installed on your OS, all required dependcies are doucmenatned 
+The scripts mainly support build automation for modern projects, static code analysis, and toolchain setup. Some are also useful for debugging.
 
-# Copyrights
+Most scripts run natively on Linux, macOS, and Windows. Some require additional tools to be installed; required dependencies are documented where applicable.
 
-Many of these scripts are taken from other open source repostories, some are modified and other are just copy/plast
-for each script , a lisence notice is attched at the top and potionllly a Copyright file is included in the same directory level
+## Copyright
 
+Some scripts are based on or copied from other open-source repositories, and some have been modified. License notices are included at the top of each script. Where applicable, a separate copyright file is included in the same directory.
 
-# Setup
+## Setup
 
-the easy way to insall this set of scripts is dolwlading the 'install.sh' script for Unix users or install.bat/install.ps1 for windows user
+You can include this repository in your project as a [Git submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules). Add the submodule to your project repository; Git will record its configuration in the `.gitmodules` file.
 
-other way is including this repostory using [git-submoduoles]() if working with git,
-which i prefer, in your project repostory add the [.gitmodules] file 
-```shell
+## Contributing
 
-``` 
+Contributions of utility scripts, fixes, and comments are welcome.
 
-# Contributing 
+## License
 
-I welcome adding your utitily scripts , fixes or comment to my collection, howver there is some
-setps to do before for more details check the [Contributing](CONTRIBUTING.md) contributing guide file
-
-# Lisence
+See [LICENSE](LICENSE).
 
 
 
