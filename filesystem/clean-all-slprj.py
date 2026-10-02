@@ -4,7 +4,7 @@
 Clean all 'slprj' folders in a given directory (optionally recursive).
 
 Usage:
-  python clean_all_slprj.py --dir D:\ePT_HCP_AutosarMigration-2020b -r
+    python clean-all-slprj.py --dir D:\ePT_HCP_AutosarMigration-2020b -r
 Options:
   --dir / -d       Root directory to inspect.
   -r / --recursive Recurse into all subdirectories.
@@ -101,7 +101,7 @@ def prompt_yes_no(question: str) -> bool:
 
 def parse_args(argv: List[str]) -> argparse.Namespace:
     p = argparse.ArgumentParser(
-        prog="clean_all_slprj",
+        prog="clean-all-slprj",
         description="Delete all 'slprj' folders in a given directory (and optionally in its subdirectories).",
         formatter_class=argparse.ArgumentDefaultsHelpFormatter,
     )

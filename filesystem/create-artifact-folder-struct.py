@@ -101,7 +101,7 @@ def create_artifact_folder_struct(ring_name, ring_full_path_2020, ring_full_path
 
 if __name__ == "__main__":
     if len(sys.argv) < 4:
-        print("Usage: python create_artifact_folder_struct.py <RingName> <RingFullPath2020> <RingFullPath2024>")
+        print("Usage: python create-artifact-folder-struct.py <RingName> <RingFullPath2020> <RingFullPath2024>")
         sys.exit(1)
 
     ring_name = sys.argv[1]

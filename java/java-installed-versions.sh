@@ -1,6 +1,6 @@
 #/bin/bash
 #
-# java_installed_versions.sh  --- simple script to check installed java is OpenJDK on Linux distros
+# java-installed-versions.sh  --- simple script to check installed java is OpenJDK on Linux distros
 #
 #
 # Author:  Arul Selvan
