@@ -15,4 +15,9 @@
 
 If a script has platform-specific variants or needs supporting files, keep those versions together in the folder for that task and document supported platforms, shells, prerequisites, and usage in a nearby README.
 
+## 
+primary grouping by domain/use-case
+secondary grouping by language/platform
+clear ownership and naming rules
+
 ## Commit Message Style

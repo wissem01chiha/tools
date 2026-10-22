@@ -1,0 +1,38 @@
+{
+  "name": "tools",
+  "version": "0.1.0",
+  "description": "Cross-platform developer tools and automation scripts",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "release": "standard-version",
+    "release:dry": "standard-version --dry-run",
+    "changelog": "standard-version --skip.bump --skip.commit --skip.tag"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wissem01chiha/tools.git"
+  },
+  "keywords": [
+    "tools",
+    "scripts",
+    "automation",
+    "build",
+    "ci"
+  ],
+  "type": "commonjs",
+  "engines": {
+    "node": ">=22"
+  },
+  "bugs": {
+    "url": "https://github.com/wissem01chiha/tools/issues"
+  },
+  "homepage": "https://github.com/wissem01chiha/tools#readme",
+  "devDependencies": {
+    "standard-version": "^9.5.0"
+  }
+}
