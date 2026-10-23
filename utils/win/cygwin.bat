@@ -1,9 +1,14 @@
+@REM Copyright 2025-2026, Wissem Chiha
+@REM
+@REM Distributed under the LGPL-2.1 license
+@REM (See accompanying file LICENSE or copy at
+@REM https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html)
+@REM
+@REM SPDX-License-Identifier: LGPL-2.1
+
 :: ===================================================================
-:: Batch Script for Checking Cygwin Instllation/Version on Win32 
+:: Batch Script for Checking Cygwin Installation/Version on Win32 
 :: Platform
-::
-:: Written by: Wissem Chiha
-:: Last Modified: 23-7-2025
 :: ===================================================================
 @echo off
 setlocal enabledelayedexpansion

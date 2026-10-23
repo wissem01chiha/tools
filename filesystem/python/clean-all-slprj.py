@@ -1,5 +1,11 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
+# Copyright 2025-2026, Wissem Chiha
+#
+# Distributed under the LGPL-2.1 license
+# (See accompanying file LICENSE or copy at
+# https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html)
+#
+# SPDX-License-Identifier: LGPL-2.1
+
 """
 Clean all 'slprj' folders in a given directory (optionally recursive).
 
@@ -60,7 +66,7 @@ def find_slprj_dirs(root: Path, recursive: bool) -> List[Path]:
                 if is_symlink_or_junction(p):
                     continue
                 safe_dirs.append(d)
-            dirs[:] = safe_dirs  
+            dirs[:] = safe_dirs
 
             for d in dirs:
                 if d.lower() == SLPRJ_NAME:
@@ -81,12 +87,13 @@ def delete_dir(path: Path, verbose: bool = False) -> Tuple[bool, str]:
     try:
         if verbose:
             print(f"[INFO] Deleting: {path}")
+
         def onerror(func, p, exc_info):
             try:
                 os.chmod(p, 0o700)
                 func(p)
             except Exception:
-                pass 
+                pass
 
         shutil.rmtree(path, onerror=onerror)
         return True, f"Deleted: {path}"
@@ -106,9 +113,17 @@ def parse_args(argv: List[str]) -> argparse.Namespace:
         formatter_class=argparse.ArgumentDefaultsHelpFormatter,
     )
     p.add_argument("--dir", "-d", required=True, help="Root directory to scan.")
-    p.add_argument("-r", "--recursive", action="store_true", help="Recurse into subdirectories.")
-    p.add_argument("--dry-run", action="store_true", help="Show what would be deleted without deleting.")
-    p.add_argument("--force", action="store_true", help="Do not prompt for confirmation.")
+    p.add_argument(
+        "-r", "--recursive", action="store_true", help="Recurse into subdirectories."
+    )
+    p.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="Show what would be deleted without deleting.",
+    )
+    p.add_argument(
+        "--force", action="store_true", help="Do not prompt for confirmation."
+    )
     p.add_argument("--verbose", action="store_true", help="Print extra details.")
     p.add_argument("--quiet", action="store_true", help="Minimal output.")
     p.add_argument("--version", action="version", version=f"%(prog)s {__version__}")
@@ -148,7 +163,9 @@ def main(argv: List[str]) -> int:
         return 0
 
     if not args.force:
-        if not prompt_yes_no(f"\nDelete {len(targets)} folder(s) named '{SLPRJ_NAME}'?"):
+        if not prompt_yes_no(
+            f"\nDelete {len(targets)} folder(s) named '{SLPRJ_NAME}'?"
+        ):
             print("Aborted.")
             return 0
 

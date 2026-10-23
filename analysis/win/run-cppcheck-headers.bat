@@ -1,10 +1,10 @@
-@echo off
-setlocal enabledelayedexpansion
-
-REM
-REM SPDX-FileCopyrightText: Copyright 2025-2026 Wissem Chiha
-REM SPDX-License-Identifier: Apache-2.0
-REM
+@REM Copyright 2025-2026, Wissem Chiha
+@REM
+@REM Distributed under the LGPL-2.1 license
+@REM (See accompanying file LICENSE or copy at
+@REM https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html)
+@REM
+@REM SPDX-License-Identifier: LGPL-2.1
 
 WHERE cppcheck.exe > NUL 2>&1
 IF %ERRORLEVEL% NEQ 0 (

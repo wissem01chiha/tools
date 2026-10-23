@@ -1,13 +1,18 @@
-#!/bin/bash
+# Copyright 2025-2026, Wissem Chiha 
+# 
+# Distributed under the LGPL-2.1 license 
+# (See accompanying file LICENSE or copy at
+# https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html)
+#
+# SPDX-License-Identifier: LGPL-2.1
+
 
 # ============================================================
 # Shell Script for Automated Artifact Folder Tree Structure Generation
 # from Activities Pre-Delivery Files
 #
 # 23-7-2025 : Added Zip feature and delete temp files
-#
-# Written by: Wissem Chiha
-# Last Modified: 23-7-2025
+
 # ============================================================
 
 set -e  # Exit on error
