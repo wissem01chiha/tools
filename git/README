@@ -1,0 +1,6 @@
+# Git
+
+Scripts and automation related to Git.
+
+Platform-specific scripts are organized in `unix/` and `win/`.
+External dependencies are listed in `DEPS`.
