@@ -1,7 +1,1 @@
-# Filesystem
-
-Scripts and automation related to filesystem tasks.
-
-Platform-specific scripts are organized in `unix/` and `win/`.
-Platform-independent Python scripts are in `python/`.
-External dependencies are listed in `DEPS`.
+Filesystem

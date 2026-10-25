@@ -1,6 +1,1 @@
-# GDB
-
-Scripts and automation related to GDB.
-
-Platform-specific scripts are organized in `unix/` and `win/`.
-External dependencies are listed in `DEPS`.
+Gdb

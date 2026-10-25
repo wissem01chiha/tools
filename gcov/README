@@ -1,6 +1,2 @@
-# gcov
+Gcov
 
-Scripts and automation related to gcov.
-
-Platform-specific scripts are organized in `unix/` and `win/`.
-External dependencies are listed in `DEPS`.
