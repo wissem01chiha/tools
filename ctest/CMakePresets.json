@@ -1,0 +1,87 @@
+{
+  "version": 6,
+  "configurePresets": [
+    {
+      "name": "default",
+      "binaryDir": "${sourceDir}/build/${presetName}",
+      "generator": "Ninja"
+    }
+  ],
+  "testPresets": [
+    {
+      "name": "test-base",
+      "hidden": true,
+      "configurePreset": "default",
+      "inheritConfigureEnvironment": true,
+      "environment": {},
+      "output": {
+        "shortProgress": false,
+        "verbosity": "default",
+        "debug": false,
+        "outputOnFailure": true,
+        "quiet": false,
+        "labelSummary": true,
+        "subprojectSummary": true,
+        "maxPassedTestOutputSize": 1024,
+        "maxFailedTestOutputSize": 300,
+        "testOutputTruncation": "tail",
+        "maxTestNameWidth": 40
+      },
+      "filter": {
+        "include": {
+          "name": "",
+          "label": "",
+          "useUnion": false
+        },
+        "exclude": {
+          "name": "",
+          "label": ""
+        }
+      },
+      "execution": {
+        "stopOnFailure": false,
+        "enableFailover": false,
+        "jobs": 4,
+        "testLoad": 0,
+        "scheduleRandom": false,
+        "timeout": 120,
+        "noTestsAction": "error"
+      }
+    },
+    {
+      "name": "test-debug",
+      "inherits": "test-base",
+      "configuration": "Debug"
+    },
+    {
+      "name": "test-verbose",
+      "inherits": "test-base",
+      "output": {
+        "verbosity": "verbose"
+      },
+      "execution": {
+        "jobs": 1,
+        "stopOnFailure": true
+      }
+    },
+    {
+      "name": "test-unit-only",
+      "inherits": "test-base",
+      "filter": {
+        "include": {
+          "label": "unit"
+        }
+      }
+    },
+    {
+      "name": "test-repeat",
+      "inherits": "test-base",
+      "execution": {
+        "repeat": {
+          "mode": "until-fail",
+          "count": 5
+        }
+      }
+    }
+  ]
+}

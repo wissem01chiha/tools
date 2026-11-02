@@ -19,13 +19,13 @@ Some scripts are based on or copied from other open-source repositories, and som
 
 You can include this repository in your project as a [git submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules). Add the submodule to your project repository, git will record its configuration in the `.gitmodules` file.
 
-A sample entry can be added to the top level of your repository:
-
 ```sh
-[submodule "tools"]
-	path = tools
-	url = https://github/wissem01chiha/tools.git
+git submodule add https://github.com/wissem01chiha/tools.git tools
 ```
+
+## Requirements
+
+- [PowerShell](https://learn.microsoft.com/en-us/powershell/) 7.4 or later on Windows, Linux, and macOS.
 
 ## Contributing
 

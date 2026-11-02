@@ -1,0 +1,116 @@
+# logging.conf.example - Example configuration file for logging.sh
+#
+# Copy this file to logging.conf (or any name) and customize as needed.
+# Use with: init_logger -c /path/to/logging.conf
+#
+# Lines starting with # or ; are comments
+# Blank lines are ignored
+# CLI arguments override values set in this file
+
+[logging]
+
+# Log level (default: INFO)
+# Valid values: DEBUG, INFO, NOTICE, WARN, ERROR, CRITICAL, ALERT, EMERGENCY
+# Can also use numeric values 0-7 (0=EMERGENCY, 7=DEBUG)
+level = INFO
+
+# Log message format (default: %d [%l] [%s] %m)
+# Format variables:
+#   %d = date and time (YYYY-MM-DD HH:MM:SS)
+#   %z = timezone indicator (UTC or LOCAL)
+#   %l = log level name (DEBUG, INFO, WARN, ERROR, etc.)
+#   %s = script name
+#   %m = message
+# Examples:
+#   "[%l] %d [%s] %m"      => "[INFO] 2025-03-03 12:34:56 [myscript.sh] Hello"
+#   "%d %z [%l] %m"        => "2025-03-03 12:34:56 UTC [INFO] Hello"
+format = %d [%l] [%s] %m
+
+# Log file path (default: empty/disabled)
+# Leave empty or comment out to disable file logging
+# The directory will be created if it doesn't exist
+# log_file = /var/log/myapp/app.log
+log_file =
+
+# Enable systemd journal logging (default: false)
+# Requires the 'logger' command to be available
+journal = false
+
+# Journal/syslog tag (default: script name)
+# Used as the identifier in syslog/journal entries
+# tag = myapp
+tag =
+
+# Syslog facility for journal entries (default: daemon)
+# Valid values: kern, user, mail, daemon, auth, syslog, lpr, news, uucp,
+# cron, authpriv, ftp, local0, local1, local2, local3, local4, local5,
+# local6, local7
+# Note: local0-local7 are available for custom application use
+facility = daemon
+
+# Use UTC timestamps (default: false)
+# Set to true to use UTC time instead of local time
+utc = false
+
+# Color mode for console output (default: auto)
+# Valid values:
+#   auto   - Detect terminal color support automatically
+#   always - Always use colors
+#   never  - Never use colors
+color = auto
+
+# Minimum level for stderr output (default: ERROR)
+# Messages at this level and above (more severe) go to stderr
+# Messages below this level go to stdout
+# Valid values: DEBUG, INFO, NOTICE, WARN, ERROR, CRITICAL, ALERT, EMERGENCY
+stderr_level = ERROR
+
+# Disable console output (default: false)
+# Set to true to suppress all console output (useful for daemon scripts)
+quiet = false
+
+# Write the INIT message to the log file on initialization (default: true)
+# Set to false to suppress "Logger initialized by <name>" from being appended to the
+# log file on every init_logger call (useful when multiple scripts share the same log
+# file, e.g. a main script and subscripts that all log to the same file)
+init_message = true
+
+# Enable verbose/debug logging (default: false)
+# When true, sets log level to DEBUG
+# Note: If both 'verbose' and 'level' are set, 'level' takes precedence
+verbose = false
+
+# Maximum log line length for console/file output (0 = unlimited)
+max_line_length = 4096
+
+# Maximum log line length for journal output (0 = unlimited)
+max_journal_length = 4096
+
+# Allow newlines in log messages (default: false)
+# SECURITY WARNING: When set to true, disables sanitization of newline and carriage
+# return characters in log messages. This can enable log injection attacks where
+# malicious input containing newlines can inject fake log entries into your logs.
+#
+# ONLY enable this if:
+#  1. You have explicit control over ALL logged messages (no user input)
+#  2. Your log parsing/analysis systems handle embedded newlines safely
+#  3. You understand the security implications and accept the risk
+#
+# When false (RECOMMENDED), newlines (\n), carriage returns (\r), and tabs (\t)
+# are replaced with spaces to prevent log injection attacks.
+# unsafe_allow_newlines = false
+
+# Allow ANSI escape codes in log messages (default: false)
+# SECURITY WARNING: When set to true, disables sanitization of ANSI escape sequences
+# in log messages. This can enable terminal manipulation attacks where malicious input
+# containing escape codes can manipulate terminal behavior or hide content.
+#
+# ONLY enable this if:
+#  1. You have explicit control over ALL logged messages (no user input)
+#  2. Your log viewing/parsing systems safely handle ANSI codes
+#  3. You understand the security implications and accept the risk
+#
+# When false (RECOMMENDED), ANSI escape sequences are stripped from incoming messages
+# to prevent terminal manipulation attacks. Note: Colors added by bash-logger itself
+# are preserved and not affected by this setting.
+# unsafe_allow_ansi_codes = false

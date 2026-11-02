@@ -12,5 +12,4 @@ if ! command -v ctest >/dev/null 2>&1; then
 fi
 
 cd build 
-
 ctest -C Debug --output-on-failure
