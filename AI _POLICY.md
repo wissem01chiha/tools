@@ -1,6 +1,6 @@
 ## AI Policy 
 
-I use Agent as part of my daily developpment activity, and permits the use of AI-assisted tools, including large language models (LLMs), code-generation systems, and coding agents, subject to the
+I use AI Agents as part of my daily developpment activity, and permits the use of AI-assisted tools, including large language models (LLMs), code-generation systems, and coding agents, subject to the
 requirements below.
 
 ### Responsibility
@@ -11,13 +11,13 @@ be able to explain the code you submit as well as the existing related code. It
 is not acceptable to submit a patch that you cannot understand and explain
 yourself. AI-generated code, comments, and other content must be reviewed and
 verified before submission. Follow the
-[contributing guidelines](../CONTRIBUTING.md).
+[contributing guidelines](./CONTRIBUTING.md).
 
 ### Disclosure
 
 You must disclose whether AI has been used to assist in the
 development of your pull request, including which tool(s) have been used, and
-a brief description of how they were used. Maintainers reserve the right to
+a brief description of how they were used. Repository Maintainers reserve the right to
 reject pull requests that do not properly disclose AI use.
 
 ### Copyright
@@ -40,4 +40,4 @@ to the 'Responsibility' section above.
 
 ### Acknowledgements
 
-This policy is adpated from [NumPy AI policy](https://github.com/numpy/numpy/blob/main/doc/source/dev/ai_policy.rst) and [PySCF AI policy](https://github.com/pyscf/pyscf/blob/master/AI_POLICY.md) 
+This policy is adpated from [NumPy AI policy](https://github.com/numpy/numpy/blob/main/doc/source/dev/ai_policy.rst) and [PySCF AI policy](https://github.com/pyscf/pyscf/blob/master/AI_POLICY.md)
