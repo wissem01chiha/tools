@@ -1,2 +1,4 @@
 /node_modules
 /.ruff_cache
+.zed/
+__pycache__/

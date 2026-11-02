@@ -3,6 +3,7 @@
 ![GitHub License](https://img.shields.io/github/license/wissem01chiha/tools)
 ![Gitter](https://img.shields.io/gitter/room/wissem01chiha/tools)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/wissem01chiha/tools)
+[![pre-commit.ci status](https://results.pre-commit.ci/badge/github/wissem01chiha/tools/master.svg)](https://results.pre-commit.ci/latest/github/wissem01chiha/tools/master)
 
 This repository contains scripts I have written to automate repetitive tasks in my daily development work. I tend to script a task whenever I think I might need to repeat it. I originally created this collection to avoid duplicating utility scripts across my project repositories. Most scripts are written in Bash, with others written in Perl, Python, and Lua.
 
